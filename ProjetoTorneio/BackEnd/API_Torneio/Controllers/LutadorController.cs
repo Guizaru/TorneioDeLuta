@@ -27,7 +27,6 @@ namespace API_Torneio.Controllers
         }
 
         [HttpGet("ListarLutadores")]
-        [Authorize]
         public async Task<ActionResult<ResponseModel<List<Lutador>>>> ListarLutadores()
         {
             var lutadores = await _lutadorInterface.ListLutador();
