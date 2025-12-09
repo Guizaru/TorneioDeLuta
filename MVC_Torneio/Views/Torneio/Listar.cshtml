@@ -1,0 +1,74 @@
+﻿@model List<MVC_Torneio.Models.DadosTorneio>
+
+@{
+    ViewData["Title"] = "Torneios";
+}
+
+<h2>Lista de Torneios</h2>
+
+<p>
+    <a asp-action="Criar" class="btn btn-success">Criar Torneio</a>
+</p>
+
+@if (Model == null || !Model.Any())
+{
+    <p>Nenhum torneio encontrado.</p>
+}
+else
+{
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Data de Criação</th>
+                <th>Vencedor</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var torneio in Model)
+            {
+                <tr>
+                    <td>@torneio.Id</td>
+                    <td>@torneio.Nome</td>
+                    <td>@torneio.DataCriacao.ToString("dd/MM/yyyy")</td>
+                    <td>@(torneio.VencedorNome ?? "-")</td>
+
+                    <td class="d-flex gap-1">
+                        <a asp-action="Lutadores"
+                           asp-controller="Torneio"
+                           asp-route-torneioId="@torneio.Id"
+                           class="btn btn-info btn-sm">
+                            Ver Lutadores
+                        </a>
+
+                        <a asp-action="Editar"
+                           asp-route-torneioId="@torneio.Id"
+                           class="btn btn-warning btn-sm">
+                            Editar
+                        </a>
+
+                        <form asp-action="Deletar" method="post" style="display:inline">
+                            <input type="hidden" name="torneioId" value="@torneio.Id" />
+                            <button type="submit"
+                                    class="btn btn-danger btn-sm"
+                                    onclick="return confirm('Tem certeza que deseja deletar este torneio?');">
+                                Deletar
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@if (TempData["Erro"] != null)
+{
+    <div class="alert alert-danger mt-2">@TempData["Erro"]</div>
+}
+
+@if (TempData["Sucesso"] != null)
+{
+    <div class="alert alert-success mt-2">@TempData["Sucesso"]</div>
+}

@@ -1,0 +1,67 @@
+﻿@model List<MVC_Torneio.Models.DadosLutador>
+
+@{
+    ViewData["Title"] = "Lutadores";
+}
+
+<h2>Lista de Lutadores</h2>
+
+<p>
+    <a asp-action="Criar" class="btn btn-success">Criar Lutador</a>
+</p>
+
+@if (Model == null || !Model.Any())
+{
+    <p>Nenhum lutador encontrado.</p>
+}
+else
+{
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Artes Marciais</th>
+                <th>Vitórias</th>
+                <th>Derrotas</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var lutador in Model)
+            {
+                <tr>
+                    <td>@lutador.Id</td>
+                    <td>@lutador.Nome</td>
+                    <td>@lutador.Idade</td>
+                    <td>@lutador.ArtesMarciais</td>
+                    <td>@lutador.Vitorias</td>
+                    <td>@lutador.Derrotas</td>
+                    <td>
+                        <a asp-action="Detalhes" asp-route-lutadorId="@lutador.Id" class="btn btn-dark btn-sm">Detalhes</a>
+
+                        <a asp-action="Editar" asp-route-lutadorId="@lutador.Id" class="btn btn-warning btn-sm">Editar</a>
+
+                        <form asp-action="Deletar" method="post" style="display:inline">
+                            <input type="hidden" name="lutadorId" value="@lutador.Id" />
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja deletar este lutador?');">
+                                Deletar
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@if (TempData["Erro"] != null)
+{
+    <div class="alert alert-danger mt-2">@TempData["Erro"]</div>
+}
+
+@if (TempData["Sucesso"] != null)
+{
+    <div class="alert alert-success mt-2">@TempData["Sucesso"]</div>
+}

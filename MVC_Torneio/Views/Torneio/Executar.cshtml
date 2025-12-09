@@ -1,0 +1,61 @@
+﻿@model MVC_Torneio.ViewModels.ExecutarTorneioViewModel
+
+@{
+    ViewData["Title"] = "Torneio de Luta";
+}
+
+<h2 class="text-center mb-4">Torneio de Luta</h2>
+
+<form asp-action="Executar" method="post">
+    <input type="hidden" asp-for="TorneioId" />
+
+    <div class="text-start mb-3">
+        <button type="submit" class="btn btn-primary">Iniciar</button>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">
+
+        @for (int i = 0; i < Model.Lutadores.Count; i++)
+        {
+            var lut = Model.Lutadores[i];
+
+            <div class="col">
+                <div class="card shadow-sm h-100">
+
+                    <div class="card-header d-flex align-items-center gap-2 bg-light">
+                        <input type="checkbox"
+                               name="LutadoresSelecionados"
+                               value="@lut.Id"
+                               @(Model.LutadoresSelecionados.Contains(lut.Id) ? "checked" : "") />
+                        <strong>@lut.Nome</strong>
+                    </div>
+
+                    <div class="card-body">
+                        <p><strong>Idade:</strong> @lut.Idade</p>
+                        <p><strong>Lutas:</strong> @lut.Lutas</p>
+                        <p><strong>Derrotas:</strong> @lut.Derrotas</p>
+                        <p><strong>Vitórias:</strong> @lut.Vitorias</p>
+                        <p><strong>Artes Marciais:</strong> @lut.ArtesMarciais</p>
+                    </div>
+
+                </div>
+            </div>
+        }
+
+    </div>
+</form>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger mt-3">
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <p>@error.ErrorMessage</p>
+        }
+    </div>
+}
+
+@if (TempData["Sucesso"] != null)
+{
+    <div class="alert alert-success mt-3">@TempData["Sucesso"]</div>
+}

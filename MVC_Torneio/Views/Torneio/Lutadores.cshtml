@@ -1,0 +1,48 @@
+﻿@model List<MVC_Torneio.Models.DadosLutador>
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h2>Lutadores do Torneio</h2>
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-warning">
+        Nenhum lutador encontrado neste torneio.
+    </div>
+}
+else
+{
+    <table class="table table-bordered table-striped mt-3">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Artes Marciais</th>
+                <th>Vitórias</th>
+                <th>Derrotas</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var lutador in Model)
+            {
+                <tr>
+                    <td>@lutador.Id</td>
+                    <td>@lutador.Nome</td>
+                    <td>@lutador.Idade</td>
+                    <td>@lutador.ArtesMarciais</td>
+                    <td>@lutador.Vitorias</td>
+                    <td>@lutador.Derrotas</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<hr />
+
+<form method="get" asp-controller="Torneio" asp-action="Listar">
+    <button class="btn btn-outline-dark">Voltar</button>
+</form>

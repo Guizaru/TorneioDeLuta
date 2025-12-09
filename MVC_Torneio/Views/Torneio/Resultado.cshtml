@@ -1,0 +1,41 @@
+﻿@model DadosTorneio
+
+@{
+    ViewData["Title"] = "Resultado do Torneio";
+}
+
+<div class="text-center mt-4">
+
+    <h2 class="mb-4">🏆 Resultado do Torneio</h2>
+
+    @if (Model.Vencedor != null)
+    {
+        <div class="card shadow-lg p-4 mx-auto" style="max-width: 450px; border-radius: 18px;">
+
+            <h3 class="text-success mb-3">
+                🥇 Campeão: @Model.Vencedor.Nome
+            </h3>
+
+            <hr />
+
+            <p><strong>Idade:</strong> @Model.Vencedor.Idade</p>
+            <p><strong>Total de Lutas:</strong> @Model.Vencedor.TotalLutas</p>
+            <p><strong>Vitórias:</strong> @Model.Vencedor.Vitorias</p>
+            <p><strong>Derrotas:</strong> @Model.Vencedor.Derrotas</p>
+            <p><strong>Artes Marciais:</strong> @Model.Vencedor.ArtesMarciais</p>
+
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning">
+            Nenhum vencedor encontrado para este torneio.
+        </div>
+    }
+
+    <div class="mt-4">
+        <a asp-action="Listar" class="btn btn-outline-dark">
+            Voltar para Torneios
+        </a>
+    </div>
+</div>
