@@ -2,6 +2,7 @@
 using API_Torneio.Models;
 using API_Torneio.Models.Entities;
 using API_Torneio.Pagination;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API_Torneio.Controllers
@@ -26,6 +27,7 @@ namespace API_Torneio.Controllers
         }
 
         [HttpGet("ListarLutadores")]
+        [Authorize]
         public async Task<ActionResult<ResponseModel<List<Lutador>>>> ListarLutadores()
         {
             var lutadores = await _lutadorInterface.ListLutador();

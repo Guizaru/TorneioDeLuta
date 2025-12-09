@@ -23,6 +23,9 @@ builder.Services.AddControllers(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddAuthorization();
+builder.Services.AddAuthentication("Bearer").AddJwtBearer();
+
 builder.Services.AddScoped<ILutadorServiceInterface, LutadorService>();
 builder.Services.AddScoped<IFasesTorneioService, FasesTorneioService>();
 builder.Services.AddScoped<ITorneioServiceInterface, TorneioService>();
@@ -33,7 +36,10 @@ builder.Services.AddScoped<ApiLoggingFilter>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))
+    ));
 
 builder.Services.Configure<RouteOptions>(options =>
 {
