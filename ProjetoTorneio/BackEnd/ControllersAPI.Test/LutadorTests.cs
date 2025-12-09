@@ -1,10 +1,7 @@
 ﻿using API_Torneio.Controllers;
 using API_Torneio.DTO.LutadorDTO;
-using API_Torneio.DTO.TorneioDTO;
 using API_Torneio.Models;
 using API_Torneio.Models.Entities;
-using API_Torneio.Repositories;
-using API_Torneio.Services.TorneioService;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 
