@@ -3,21 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36603.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_Torneio", "API_Torneio\API_Torneio.csproj", "{ADD30743-1370-4A8E-8D94-E19D33A92655}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_Torneio", "BackEnd\API_Torneio\API_Torneio.csproj", "{ADD30743-1370-4A8E-8D94-E19D33A92655}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC_Torneio", "MVC_Torneio\MVC_Torneio.csproj", "{74C3F2D3-7629-44D5-9EF9-398821236187}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC_Torneio", "FrontEnd\MVC_Torneio\MVC_Torneio.csproj", "{74C3F2D3-7629-44D5-9EF9-398821236187}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests_MVC", "tests_MVC", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllersMvc.Test", "tests\TestProject1\ControllersMvc.Test.csproj", "{026023BB-C6B7-41D9-A707-CF1BEEBAA1AE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllersMvc.Test", "FrontEnd\tests\TestProject1\ControllersMvc.Test.csproj", "{026023BB-C6B7-41D9-A707-CF1BEEBAA1AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicesMVC.Test", "ServicesMVC.Test\ServicesMVC.Test.csproj", "{08BDBE15-5E46-4597-9556-71E6E2DA367D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicesMVC.Test", "FrontEnd\ServicesMVC.Test\ServicesMVC.Test.csproj", "{08BDBE15-5E46-4597-9556-71E6E2DA367D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests_API", "tests_API", "{700528C5-8443-4597-8CEF-90AE2C35ABB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicesAPI.Test", "ServicesAPI.Test\ServicesAPI.Test.csproj", "{4022925E-49A0-4A73-9C55-29AFEF3E8CA0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicesAPI.Test", "BackEnd\ServicesAPI.Test\ServicesAPI.Test.csproj", "{4022925E-49A0-4A73-9C55-29AFEF3E8CA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllersAPI.Test", "ControllersAPI.Test\ControllersAPI.Test.csproj", "{D916A98E-469C-4708-A0AE-C0F9A83CA447}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllersAPI.Test", "BackEnd\ControllersAPI.Test\ControllersAPI.Test.csproj", "{D916A98E-469C-4708-A0AE-C0F9A83CA447}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,6 +60,6 @@ Global
 		{D916A98E-469C-4708-A0AE-C0F9A83CA447} = {700528C5-8443-4597-8CEF-90AE2C35ABB3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {2A30C0BA-EC7B-42A7-8A21-F4B449CE6A4E}
+		        SolutionGuid = {2A30C0BA-EC7B-42A7-8A21-F4B449CE6A4E}
 	EndGlobalSection
 EndGlobal
